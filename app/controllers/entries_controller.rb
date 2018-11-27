@@ -13,7 +13,12 @@ class EntriesController < ApplicationController
   end
 
   def edit
+    @entry = Entry.find(params[:id])
     render :edit
+  end
+
+  def update
+    redirect_to entry_url(params[:id])
   end
 
   def show
