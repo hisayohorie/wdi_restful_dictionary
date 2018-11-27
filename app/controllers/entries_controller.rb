@@ -4,6 +4,10 @@ class EntriesController < ApplicationController
     render :index
   end
 
+  def new
+    @entry = Entry.new
+  end
+
   def show
     @entry = Entry.find(params[:id])
   end
