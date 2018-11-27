@@ -1,1 +1,6 @@
-<h1>Entries</h1>
+<h1>Dictionary</h1>
+<% @entries.each do |entry| %>
+<ul>
+  <li><%= link_to "#{entry.word}", entry %></li>
+</ul>
+<% end %>

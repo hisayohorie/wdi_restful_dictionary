@@ -1,7 +1,7 @@
 class EntriesController < ApplicationController
 
   def index
-    render :index
+    @entries = Entry.all
   end
 
   def new
