@@ -9,16 +9,25 @@ class EntriesController < ApplicationController
   end
 
   def create
-    redirect_to entries_url
+    @entry = Entry.new(entry_params)
+    if @entry.save
+      redirect_to @entry
+    else
+      render :new
+    end
   end
 
   def edit
     @entry = Entry.find(params[:id])
-    render :edit
   end
 
   def update
-    redirect_to entry_url(params[:id])
+    @entry = Entry.find(params[:id])
+    if @entry.update(entry_params)
+      redirect_to @entry
+    else
+      render :edit
+    end
   end
 
   def show
@@ -26,6 +35,14 @@ class EntriesController < ApplicationController
   end
 
   def destroy
-    redirect_to entries_url
+    @entry = Entry.find(params[:id])
+    @entry.destroy
+    redirect_to entries_path
+
+  end
+
+  private
+  def entry_params
+    params.require(:entry).permit(:word, :definition, :language)
   end
 end

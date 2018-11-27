@@ -1,2 +1,18 @@
 <h1>Edit an entry</h1>
-<p><%= @entry.word %></p>
+<%= form_with model: @entry, local: true do |form| %>
+  <p>
+    <%= form.label :word %>
+    <%= form.text_field :word %>
+  </p>
+  <p>
+    <%= form.label :definition %>
+    <%= form.text_area :definition %>
+  </p>
+  <p>
+    <%= form.label :language %>
+    <%= form.text_field :language %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

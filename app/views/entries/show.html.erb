@@ -1,3 +1,6 @@
 <h1>the word no.<%= @entry.id %>: <%= @entry.word %> <span>(<%= @entry.language %>)</span></h1>
 <h2>Definition:</h2>
 <p><%= @entry.definition %></p>
+<%= link_to 'Back', entries_path %>
+<%= link_to 'Edit', edit_entry_path %>
+<%= link_to 'Delete', entry_path(@entry), method: :delete %>
