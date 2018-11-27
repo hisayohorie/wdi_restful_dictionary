@@ -8,6 +8,10 @@ class EntriesController < ApplicationController
     @entry = Entry.new
   end
 
+  def create
+    redirect_to entries_url
+  end
+
   def show
     @entry = Entry.find(params[:id])
   end
